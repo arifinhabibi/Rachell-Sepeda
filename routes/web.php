@@ -61,4 +61,5 @@ Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->n
 
 // profile
 Route::get('/profil', [AdminController::class, 'profile'])->name('profile');
+Route::post('/profil_edit_akun', [AdminController::class, 'profileEdit'])->name('profileEdit');
 

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Homepage;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class AdminController extends Controller
 {
@@ -77,6 +79,31 @@ class AdminController extends Controller
 
     public function profile(){
         return \view('Admin.profile.profile');
+    } 
+    
+    public function profileEdit(Request $request){
+
+        $data = Auth::user();
+
+        // $data = $request->validate([
+        //     'username' => 'required|max:25',
+        //     'password' => 'required|min:8'
+        // ]);
+
+        $data->update($request->validate([
+            'username' => 'required|max:25',
+            'password' => 'required',
+            'avatar' => 'required'
+        ]));
+        
+        $data['password'] = bcrypt($data['password']);
+        if ($request->hasFile('avatar')) {
+            # code...
+            $request->file('avatar')->move('assets/dist/img/avatar', $request->file('avatar')->getClientOriginalName());
+            $data->avatar = $request->file('avatar')->getClientOriginalName();
+            $data->save();
+        }
+        return redirect()->route('profile')->with('ubah', 'Profil anda berhasil diubah');
     } 
 
 

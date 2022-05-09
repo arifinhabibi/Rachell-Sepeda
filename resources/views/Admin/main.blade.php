@@ -92,7 +92,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{ route('admin') }}" class="nav-link">
+            <a href="{{ route('admin') }}" class="nav-link {{ request()->is('admin') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Beranda
@@ -100,7 +100,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('profile') }}" class="nav-link">
+            <a href="{{ route('profile') }}" class="nav-link {{ request()->is('profil') ? 'active' : '' }}">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Profil
@@ -108,7 +108,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('data') }}" class="nav-link">
+            <a href="{{ route('data') }}" class="nav-link {{ request()->is('data_produk') ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Data Produk
@@ -133,7 +133,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-
+    @yield('headerProfile')
 
     <!-- Main content -->
     <section class="content">
@@ -175,6 +175,8 @@
     </div>
   </div>
 </div>
+
+
 
 <!-- jQuery -->
 <script src="/assets/plugins/jquery/jquery.min.js"></script>

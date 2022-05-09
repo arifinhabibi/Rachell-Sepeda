@@ -52,9 +52,8 @@ class AuthController extends Controller
 
     public function registerStore(Request $request){
         $data = $request->validate([
-            'username' => 'required|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8'
+            'username' => 'required|max:25',
+            'password' => 'required'
         ]);
         $data['password'] = bcrypt($data['password']);
 
