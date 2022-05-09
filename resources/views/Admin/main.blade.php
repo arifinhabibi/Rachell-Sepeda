@@ -154,7 +154,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content p-4">
       <div class="modal-body pt-3 pb-5">
-        Apakah anda yakin akan keluar?
+        Hallo {{ Auth::user()->username }}, Apakah anda yakin akan keluar?
       </div>
       <div class="row justify-content-end g-6">
         <div class="col-2">
