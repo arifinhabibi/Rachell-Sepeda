@@ -108,7 +108,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('logout') }}" onclick="return confirm('Tekan Oke untuk Log-Out')" class="nav-link">
+            <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
                 <p class="text-decoration-none">Keluar</p>
@@ -148,6 +148,25 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content p-4">
+      <div class="modal-body pt-3 pb-5">
+        Apakah anda yakin akan keluar?
+      </div>
+      <div class="row justify-content-end g-6">
+        <div class="col-2">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+        </div>
+        <div class="col-4">
+          <a type="button" href="{{ route('logout') }}" class="btn btn-primary">Ya</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- jQuery -->
 <script src="/assets/plugins/jquery/jquery.min.js"></script>
