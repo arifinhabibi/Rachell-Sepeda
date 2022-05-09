@@ -100,6 +100,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('profile') }}" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Profil
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('data') }}" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>

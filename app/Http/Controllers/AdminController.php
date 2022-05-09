@@ -51,7 +51,12 @@ class AdminController extends Controller
     public function editStore(Request $request, $id){
         $data = Homepage::find($id);
         $data->update($request->all());
-
+        if ($request->hasFile('foto_sepeda')) {
+            # code...
+            $request->file('foto_sepeda')->move('img/sepeda/', $request->file('foto_sepeda')->getClientOriginalName());
+            $data->foto_sepeda = $request->file('foto_sepeda')->getClientOriginalName();
+            $data->save();
+        }
         return redirect()->route('data')->with('ubah', 'Data berhasil diubah');
     }
 
@@ -70,6 +75,9 @@ class AdminController extends Controller
         return view('Admin.detail-data', compact('data'));
     }
 
+    public function profile(){
+        return \view('Admin.profile.profile');
+    } 
 
 
     // Kategori

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,4 +58,7 @@ Route::post('/masuk', [App\Http\Controllers\AuthController::class, 'loginStore']
 Route::get('/daftar', [App\Http\Controllers\AuthController::class, 'register'])->name('register');
 Route::post('/daftar', [App\Http\Controllers\AuthController::class, 'registerStore'])->name('registerpost');
 Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+
+// profile
+Route::get('/profil', [AdminController::class, 'profile'])->name('profile');
 

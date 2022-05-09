@@ -29,30 +29,72 @@
               </div>
               <div class="form-group">
                 <label for="inputDescription">Deskripsi</label>
-                <textarea id="inputDescription" class="form-control" value="{{ $data->deskripsi }}" rows="4" name="deskripsi" required></textarea>
+                <textarea id="inputDescription" class="form-control" rows="4" name="deskripsi" required>{{ $data->deskripsi }}</textarea>
               <div class="form-group">
                 <label>Spesifikasi</label>
-                <textarea id="summernote" class="form-control" value="{!! $data->spesifikasi !!}" name="spesifikasi"></textarea>
+                <textarea id="summernote" class="form-control" name="spesifikasi">{!! $data->spesifikasi !!}</textarea>
               </div>
               <div class="form-group">
                 <label for="inputStatus">Populer</label>
-                <select id="inputStatus" name="kondisi" value="{{ $data->kondisi }}" class="form-control custom-select">
+                <select id="inputStatus" name="kondisi" class="form-control custom-select">
                   <option selected disabled>Select one</option>
+                  @if ($data->kondisi == "new-arrivals")
+                  <option>Tidak Ada</option>
+                  <option value="new-arrivals" selected>new-arrivals</option>
+                  <option value="hot-sales">hot-sales</option>
+                  @endif
+                  @if ($data->kondisi == "hot-sales")
                   <option>Tidak Ada</option>
                   <option value="new-arrivals">new-arrivals</option>
-                  <option value="hot-sales">hot-sales</option>
+                  <option value="hot-sales" selected>hot-sales</option>
+                  @endif
                 </select>
               </div>
               <div class="form-group">
                 <label for="inputStatus">Kategori</label>
-                <select id="inputStatus"  name="kategori" value="{{ $data->kategoti }}" class="form-control custom-select">
+                <select id="inputStatus"  name="kategori" class="form-control custom-select">
                   <option selected disabled>Select one</option>
-                  <option>Tidak Ada</option>
-                  <option value="Dewasa">Dewasa</option>
+                  @if ($data->kategori == "Dewasa")
+                  <option value="Dewasa" selected>Dewasa</option>
                   <option value="Kids">kids</option>
                   <option value="Balita">Balita</option>
                   <option value="Anak">Anak</option>
                   <option value="Orang Tua">Orang Tua</option>
+                  @endif
+
+                  
+                  @if ($data->kategori == "Kids")
+                  <option value="Dewasa">Dewasa</option>
+                  <option value="Kids" selected>kids</option>
+                  <option value="Balita">Balita</option>
+                  <option value="Anak">Anak</option>
+                  <option value="Orang Tua">Orang Tua</option>
+                  @endif
+                  
+                  
+                  @if ($data->kategori == "Balita")
+                  <option value="Dewasa">Dewasa</option>
+                  <option value="Kids">kids</option>
+                  <option value="Balita" selected>Balita</option>
+                  <option value="Anak">Anak</option>
+                  <option value="Orang Tua">Orang Tua</option>
+                  @endif
+                  
+                  @if ($data->kategori == "Anak")
+                  <option value="Dewasa">Dewasa</option>
+                  <option value="Kids">kids</option>
+                  <option value="Balita">Balita</option>
+                  <option value="Anak" selected>Anak</option>
+                  <option value="Orang Tua">Orang Tua</option>
+                  @endif
+                  
+                  @if ($data->kategori == "Orang Tua")
+                  <option value="Dewasa">Dewasa</option>
+                  <option value="Kids">kids</option>
+                  <option value="Balita">Balita</option>
+                  <option value="Anak">Anak</option>
+                  <option value="Orang Tua" selected>Orang Tua</option>
+                  @endif
                 </select>
               </div>
               <div class="form-group">
